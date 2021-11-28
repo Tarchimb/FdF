@@ -14,5 +14,13 @@
 # define FDH_H
 
 # include "libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include <stdio.h>
+# include <math.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 
 # endif
