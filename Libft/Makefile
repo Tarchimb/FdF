@@ -6,7 +6,7 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 14:57:46 by tarchimb          #+#    #+#              #
-#    Updated: 2021/11/26 14:04:22 by tarchimb         ###   ########.fr        #
+#    Updated: 2021/12/03 09:14:20 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS		=	./ft_atoi.c ./ft_calloc.c ./ft_isalpha.c ./ft_isdigit.c \
 				./ft_strlen.c ./ft_strncmp.c ./ft_strrchr.c ./ft_substr.c \
 				./ft_toupper.c ./ft_itoa.c ./ft_putnbr_fd.c ./ft_strlcat.c\
 				./get_next_line.c ./get_next_line_utils.c \
+				./ft_atoi_base.c ./ft_split_str.c 	\
 
 SRCSBONUS	= 	./ft_lstadd_back.c ./ft_lstadd_front.c \
 				./ft_lstlast.c ./ft_lstsize.c ./ft_lstnew.c ./ft_lstclear.c \
@@ -35,7 +36,7 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-NAME		=	../libft.a
+NAME		=	libft.a
 
 RM			=	rm -f
 
@@ -46,6 +47,7 @@ all:		${NAME}
 
 $(NAME):	${OBJS} ${INCLUDES}
 			ar rcs ${NAME} ${OBJS}
+			cp ${NAME} ../
 
 clean:
 			${RM} ${OBJS} ${OBJSBONUS}

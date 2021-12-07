@@ -6,41 +6,11 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 07:43:35 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/11/26 14:05:05 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/01 09:38:54 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)s + i);
-		i++;
-	}
-	if (s[i] == (unsigned char)c)
-		return ((char *)s + i);
-	return (0);
-}
 
 int	ft_strchr_len(const char *s, int c)
 {
