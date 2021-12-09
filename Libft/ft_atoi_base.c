@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 08:51:47 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/01 10:33:59 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/09 09:24:18 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@ int	ft_check_str(char *str, int *i)
 	j = 0;
 	while ((str[*i] >= 9 && str[*i] <= 13) || (str[*i] == 32))
 		*i += 1;
-	while (str[*i] >= '0'  && str[*i] <= '9')
+	while (str[*i] >= '0' && str[*i] <= '9')
 		*i += 1;
 	if (str[*i] == ',')
 		*i += 1;
 	if (str[*i] == '0' && str[*i + 1] == 'x')
 		*i += 2;
+	j = *i;
+	while (str[j])
+	{
+		if (ft_islower(str[j]) == 1)
+			str[j] -= 32;
+		j++;
+	}
 	return (0);
 }
 
@@ -55,7 +62,7 @@ int	ft_check_base(char	*str)
 		while (str[o])
 		{
 			if (str[i] == str[o])
-				 return (1);
+				return (1);
 			o++;
 		}
 		if (str[i] == '+' || str[i] == ' ' || str[i] == '\n'

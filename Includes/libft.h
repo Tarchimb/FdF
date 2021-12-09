@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:36:21 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/01 13:02:31 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/09 08:12:31 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 int			ft_atoi(char *str);
 int			ft_strchr_len(const char *s, int c);
 int			ft_atoi_base(char *str, char *base);
+int			ft_islower(int c);
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);

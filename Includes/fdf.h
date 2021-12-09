@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 12:59:52 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/07 08:55:08 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/09 13:28:16 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include <sys/stat.h>
 # include <mlx.h>
 # define BASE_HEXA "0123456789ABCDEF"
+# define HAUTEUR 1080
+# define LARGEUR 1920
 
 typedef	struct	s_val4
 {
@@ -44,6 +46,9 @@ typedef struct	s_map
 	t_vertex	**map_tab;
 	int			x_size;
 	int			y_size;
+	int			midx;
+	int			midy;
+	double		distance;
 }	t_map;
 
 typedef struct	s_data {
@@ -59,6 +64,15 @@ typedef struct	s_vars {
 	t_data	*win;
 }				t_vars;
 
+typedef struct	s_int {
+	int		pixels;
+	double	deltax;
+	double	deltay;
+	double	pixelx;
+	double	pixely;
+	int		deltacolor;
+}				t_int;
+
 int		ft_parsing_map(char *argv, t_map *map);
 int		ft_fill_map(t_map *map, char **line, int i);
 int		ft_malloc_map(t_map *map);
@@ -68,6 +82,7 @@ int		ft_count_int(const char *str, char charset);
 void	*ft_free_all(void **tab);
 void	ft_new_window(t_map *map);
 void	ft_convert_map_to_iso(t_map *map);
+int		key_hook(int keycode, t_vars *vars, t_map *map);
 
 
 # endif

@@ -6,7 +6,7 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 11:24:39 by tarchimb          #+#    #+#              #
-#    Updated: 2021/12/07 08:31:27 by tarchimb         ###   ########.fr        #
+#    Updated: 2021/12/09 12:09:26 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ SRCS		=	ft_parsing.c				\
 				ft_parsing_2.c				\
 				ft_window.c					\
 				ft_convert_map_to_iso.c		\
+				ft_hooks.c					\
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -25,7 +26,7 @@ LIBINCLUDES	=	-IIncludes -IMinilibx
 
 CC			= 	gcc
 
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -g 
 
 NAME		=	./libfdf.a
 
@@ -45,7 +46,7 @@ all:		${NAME}
 
 gc:			${LIBS}
 			${CC} ${CFLAGS} ${MLXFLAGS} ${LIBS} ${LIBINCLUDES} main.c -o fdf
-			./fdf
+			leaks -atExit -- ./fdf
 
 $(NAME):	${OBJS} ${INCLUDES}
 			make -C ./Minilibx

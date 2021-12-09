@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/09 12:51:57 by tarchimb          #+#    #+#             */
+/*   Updated: 2021/12/09 13:26:08 by tarchimb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Includes/libft.h"
 #include "Includes/fdf.h"
 
@@ -33,11 +45,11 @@ int	main(int argc, char **argv)
 	// if (argc != 2)
 	// 	return (0);
 	// map = ft_parsing_map(argv[1]);
-	if (!(ft_parsing_map("test_maps/10-2.fdf", &map)))
+	if (!(ft_parsing_map("test_maps/julia.fdf", &map)))
 		return (0);
 	ft_convert_map_to_iso(&map);
 	ft_new_window(&map);
 	print_tab(map, 1);
-	// ft_free_all((void **)map.map_tab);
+	ft_free_all((void **)map.map_tab);
 	return (0);
 }

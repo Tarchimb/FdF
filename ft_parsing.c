@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 11:56:01 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/07 08:30:38 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/09 12:12:27 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_malloc_map(t_map *map)
 	j = 0;
 	if (!map)
 		return (0);
-	map->map_tab = malloc(sizeof(t_vertex *) * map->y_size + 1);
+	map->map_tab = malloc(sizeof(t_vertex *) * (map->y_size + 1));
 	if (!map->map_tab)
 		return (0);
 	while (i < map->y_size)
@@ -44,7 +44,7 @@ int	ft_fill_map(t_map *map, char **line, int i)
 
 	k = 0;
 	j = 0;
-	if (!line)		
+	if (!line)
 		return ((int)ft_free_all((void **)map->map_tab));
 	while (j < map->x_size)
 	{
@@ -78,10 +78,10 @@ int	ft_parsing_map(char *argv, t_map *map)
 		if (!ft_fill_map(map, line, i))
 			return ((int)ft_free_all((void **)file));
 		i++;
-		ft_free_all((void**)line);
+		ft_free_all((void **)line);
 		line = ft_split(file[i], ' ');
 	}
 	map->map_tab[i] = NULL;
-	ft_free_all((void**)file);
+	ft_free_all((void **)file);
 	return (1);
 }
