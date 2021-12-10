@@ -6,7 +6,7 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 11:24:39 by tarchimb          #+#    #+#              #
-#    Updated: 2021/12/09 12:09:26 by tarchimb         ###   ########.fr        #
+#    Updated: 2021/12/10 16:41:03 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIBINCLUDES	=	-IIncludes -IMinilibx
 
 CC			= 	gcc
 
-CFLAGS		= 	-Wall -Wextra -Werror -g 
+CFLAGS		= 	-Wall -Wextra -Werror -g #-fsanitize=address
 
 NAME		=	./libfdf.a
 
@@ -46,7 +46,7 @@ all:		${NAME}
 
 gc:			${LIBS}
 			${CC} ${CFLAGS} ${MLXFLAGS} ${LIBS} ${LIBINCLUDES} main.c -o fdf
-			leaks -atExit -- ./fdf
+			./fdf
 
 $(NAME):	${OBJS} ${INCLUDES}
 			make -C ./Minilibx
