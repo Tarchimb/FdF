@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 08:09:55 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/10 16:42:17 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:12:46 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ void	ft_convert_map_to_iso(t_map *map)
 	// if (map->y_size < 8)
 	// 	map->distance = 1;
 	// else
-		map->distance = (((LARGEUR / map->x_size)
+	map->distance = (((LARGEUR / map->x_size)
 					+ (HAUTEUR / map->y_size)) / 2) / 2;
+	if ((map->x_size == 10 && map->y_size == 10)
+		|| (map->x_size == 20 && map->y_size == 20))
+		map->distance = 35;
 	map->midx = LARGEUR / 3;
 	map->midy = HAUTEUR / 2;
 	i = 0;

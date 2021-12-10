@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:47:54 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/10 17:26:14 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:15:51 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,29 +49,29 @@ int	ft_draw_line(t_data *img, t_val4 start, t_val4 end)
 	return (0);
 }
 
-int	ft_check_position(t_map *map, int *x, int *y, int check)
-{
-	if (!(map->map_tab[*y][*x].local.x < 0 || map->map_tab[*y][*x].local.x
-		> LARGEUR || map->map_tab[*y][*x].local.y < 0
-		|| map->map_tab[*y][*x].local.x > HAUTEUR))
-	{
-		if (check == 0)
-			if ((*x < map->x_size - 1)
-			&& (!(map->map_tab[*y][*x + 1].local.x < 0)
-			|| (map->map_tab[*y][*x + 1].local.x > LARGEUR)
-			|| (map->map_tab[*y][*x + 1].local.y < 0)
-			|| (map->map_tab[*y][*x + 1].local.y > HAUTEUR)))
-				return (0);
-		if (check == 1)
-			if ((*y < map->y_size - 1)
-			&& (!(map->map_tab[*y + 1][*x].local.x < 0)
-			|| (map->map_tab[*y + 1][*x].local.x > LARGEUR)
-			|| (map->map_tab[*y + 1][*x].local.y < 0)
-			|| (map->map_tab[*y + 1][*x].local.y > HAUTEUR)))
-				return (0);
-	}
-	return (1);
-}
+// int	ft_check_position(t_map *map, int *x, int *y, int check)
+// {
+// 	if (!(map->map_tab[*y][*x].local.x < 0 || map->map_tab[*y][*x].local.x
+// 		> LARGEUR || map->map_tab[*y][*x].local.y < 0
+// 		|| map->map_tab[*y][*x].local.x > HAUTEUR))
+// 	{
+// 		if (check == 0)
+// 			if ((*x < map->x_size - 1)
+// 			&& (!(map->map_tab[*y][*x + 1].local.x < 0)
+// 			|| (map->map_tab[*y][*x + 1].local.x > LARGEUR)
+// 			|| (map->map_tab[*y][*x + 1].local.y < 0)
+// 			|| (map->map_tab[*y][*x + 1].local.y > HAUTEUR)))
+// 				return (0);
+// 		if (check == 1)
+// 			if ((*y < map->y_size - 1)
+// 			&& (!(map->map_tab[*y + 1][*x].local.x < 0)
+// 			|| (map->map_tab[*y + 1][*x].local.x > LARGEUR)
+// 			|| (map->map_tab[*y + 1][*x].local.y < 0)
+// 			|| (map->map_tab[*y + 1][*x].local.y > HAUTEUR)))
+// 				return (0);
+// 	}
+// 	return (1);
+// }
 
 // static void	check_pixel_put(t_program *fdf, int x, int y)
 // {
@@ -108,11 +108,11 @@ void	ft_print_map(t_map *map, t_data *img)
 		while (x < map->x_size)
 		{
 			if (x < map->x_size - 1)
-				if (ft_check_position(map, &x, &y, 0) == 0)
+				// if (ft_check_position(map, &x, &y, 0) == 0)
 					ft_draw_line(img, map->map_tab[y][x].world,
 						map->map_tab[y][x + 1].world);
 			if (y < map->y_size - 1)
-				if (ft_check_position(map, &x, &y, 1) == 0)
+				// if (ft_check_position(map, &x, &y, 1) == 0)
 					ft_draw_line(img, map->map_tab[y][x].world,
 						map->map_tab[y + 1][x].world);
 			x++;

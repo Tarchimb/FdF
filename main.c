@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 12:51:57 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/10 18:00:17 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:23:10 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 	// if (argc != 2)
 	// 	return (0);
 	// map = ft_parsing_map(argv[1]);
-	if (!(ft_parsing_map("test_maps/elem2.fdf", &map)))
+	if (!(ft_parsing_map("test_maps/t2.fdf", &map)))
 		return (0);
 	ft_convert_map_to_iso(&map);
 	ft_new_window(&map);
@@ -53,3 +53,4 @@ int	main(int argc, char **argv)
 	ft_free_all((void **)map.map_tab);
 	return (0);
 }
+//pnp_plat, elem2/ pylone
