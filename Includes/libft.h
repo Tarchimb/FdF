@@ -6,14 +6,12 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:36:21 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/09 08:12:31 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/11 08:55:15 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -86,6 +84,5 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
-
 
 #endif

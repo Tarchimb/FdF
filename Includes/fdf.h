@@ -6,12 +6,12 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 12:59:52 by tarchimb          #+#    #+#             */
-/*   Updated: 2021/12/09 13:28:16 by tarchimb         ###   ########.fr       */
+/*   Updated: 2021/12/11 08:56:08 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FDH_H
-# define FDH_H
+#ifndef FDF_H
+# define FDF_H
 
 # include "libft.h"
 # include <stdlib.h>
@@ -27,21 +27,21 @@
 # define HAUTEUR 1080
 # define LARGEUR 1920
 
-typedef	struct	s_val4
+typedef struct s_val4
 {
 	double	x;
 	double	y;
 	double	z;
-	int	color;
+	int		color;
 }	t_val4;
 
-typedef	struct	s_vertex
+typedef struct s_vertex
 {
 	t_val4	local;
 	t_val4	world;
 }	t_vertex;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	t_vertex	**map_tab;
 	int			x_size;
@@ -51,27 +51,30 @@ typedef struct	s_map
 	double		distance;
 }	t_map;
 
-typedef struct	s_data {
+typedef struct s_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}	t_data;
 
-typedef struct	s_vars {
+typedef struct s_vars
+{
 	void	*mlx;
 	t_data	*win;
-}				t_vars;
+}	t_vars;
 
-typedef struct	s_int {
+typedef struct s_int
+{
 	int		pixels;
 	double	deltax;
 	double	deltay;
 	double	pixelx;
 	double	pixely;
 	int		deltacolor;
-}				t_int;
+}	t_int;
 
 int		ft_parsing_map(char *argv, t_map *map);
 int		ft_fill_map(t_map *map, char **line, int i);
@@ -82,7 +85,5 @@ int		ft_count_int(const char *str, char charset);
 void	*ft_free_all(void **tab);
 void	ft_new_window(t_map *map);
 void	ft_convert_map_to_iso(t_map *map);
-int		key_hook(int keycode, t_vars *vars, t_map *map);
-
-
-# endif
+int		key_hook(int keycode, t_vars *vars);
+#endif

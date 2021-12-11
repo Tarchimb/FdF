@@ -6,15 +6,15 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 11:24:39 by tarchimb          #+#    #+#              #
-#    Updated: 2021/12/10 16:41:03 by tarchimb         ###   ########.fr        #
+#    Updated: 2021/12/11 09:05:17 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	ft_parsing.c				\
-				ft_parsing_2.c				\
-				ft_window.c					\
-				ft_convert_map_to_iso.c		\
-				ft_hooks.c					\
+SRCS		=	srcs/ft_parsing.c				\
+				srcs/ft_parsing_2.c				\
+				srcs/ft_window.c				\
+				srcs/ft_convert_map_to_iso.c	\
+				srcs/ft_hooks.c					\
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -26,7 +26,7 @@ LIBINCLUDES	=	-IIncludes -IMinilibx
 
 CC			= 	gcc
 
-CFLAGS		= 	-Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS		= 	-Wall -Wextra -Werror -g -fsanitize=address
 
 NAME		=	./libfdf.a
 
@@ -37,16 +37,15 @@ LIBS 		= 	./libmlx.dylib				\
 				${NAME}						\
 			
 
-RM			=	rm -f
+RM			=	rm -rf
 
-all:		${NAME}
+all:		${NAME} gc
 
 %.o:		%.c ${INCLUDES}
 			${CC} ${CFLAGS} ${LIBINCLUDES} -c $< -o $@
 
 gc:			${LIBS}
-			${CC} ${CFLAGS} ${MLXFLAGS} ${LIBS} ${LIBINCLUDES} main.c -o fdf
-			./fdf
+			${CC} ${CFLAGS} ${MLXFLAGS} ${LIBS} ${LIBINCLUDES} fdf.c -o fdf
 
 $(NAME):	${OBJS} ${INCLUDES}
 			make -C ./Minilibx
@@ -61,7 +60,7 @@ clean:
 			
 fclean:		clean
 			make fclean -C ./Libft
-			@${RM} ${NAME}
+			@${RM} ${LIBS}
 
 re:			fclean all
 
